@@ -1,9 +1,10 @@
 bottle_session
 ==============
-A session plugin for bottle.
+A session plugin for bottle.实现了Memcached存储session数据。
 
-实现了Memcached存储session数据。
+Usage Example:
 
+``` python
 import bottle
 import pylibmc
 from bottle_session import SessionPlugin
@@ -25,3 +26,5 @@ def index(session):
 @app.route('/show_session')
 def show_session(session):
     return session['test']
+    
+``` 
