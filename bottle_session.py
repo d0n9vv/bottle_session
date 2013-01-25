@@ -7,7 +7,7 @@ import datetime
 import os
 import cPickle as pickle
 import time
-from bottle import request, response, HTTPError, PluginError
+from bottle import request, response, PluginError
 
 
 class BaseSession(collections.MutableMapping):
@@ -300,11 +300,7 @@ class SessionPlugin(object):
 
             kwargs[keyword] = session
 
-            try:
-                rv = callback(*args, **kwargs)
-            except:
-                raise HTTPError(500)
-
+            rv = callback(*args, **kwargs)
             return rv
         return wrapper
 
